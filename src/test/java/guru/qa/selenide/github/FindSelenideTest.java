@@ -2,6 +2,7 @@ package guru.qa.selenide.github;
 
 
 import com.codeborne.selenide.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
@@ -9,6 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class FindSelenideTest {
 
+  @Disabled
   @Test
   void shouldFindSelenideInGitHub(){
     // открыть страничку гитхаб

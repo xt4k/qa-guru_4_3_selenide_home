@@ -13,8 +13,6 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-sourceCompatibility = 11
-targetCompatibility = 11
 
 dependencies {
     testImplementation("com.codeborne:selenide:5.18.0")

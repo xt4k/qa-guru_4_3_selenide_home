@@ -1,26 +1,29 @@
 package guru.qa.selenide.github;
 
 
+import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class FindSelenideSoftAssertionPageTest {
 
-  @Test
-  void shouldFindSelenideInGitHub(){
-    // открыть страничку гитхаб
-    open("https://github.com");
-    // ввести в поле поиска selenide
-    // нажать enter
-    $("[name=q]").setValue("selenide").pressEnter();
-    // выбрать первый найденый проект из списка
-    //$$("ul.repo-list li").first().$("a").click();
-    $("ul.repo-list li a").click();
-    // проверка: в заголовке встречается selenide/selenide
-    $("h1").shouldHave(text("selenide / selenide"));
-  }
+    @DisplayName("Selenide Soft Assertion Test. qa-guru 4-3 home work")
+    @Test
+    void shouldFindSelenideInGitHub() {
+        open("https://github.com/selenide/selenide");
+        $x(".//span[@data-content='Wiki']").click();
+        $$x(".//*[@id='wiki-pages-box']//a").last()
+                .shouldHave(text("SoftAssertions"))
+                .click();
+        for (SelenideElement se : $$x(".//ol"))
+            se.shouldHave(text("JUnit5"));
+        $x(".//ol[@start=3]").shouldHave(text("Using JUnit5 extend test class:"))
+                .sibling(0)
+                .shouldHave(attribute("class", "highlight highlight-source-java"));
+    }
 
 }

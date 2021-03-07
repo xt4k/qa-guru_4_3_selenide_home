@@ -1,6 +1,7 @@
 package guru.qa.selenide;
 
 import com.codeborne.selenide.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Point;
 
@@ -11,8 +12,9 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DragAndDropTest {
 
+  @Disabled
   @Test
-  void shouldDragAontoB() throws AWTException {
+  void shouldDragAontoB() {
     open("https://the-internet.herokuapp.com/drag_and_drop");
     $("#column-a header").shouldHave(text("A"));
     $("#column-b header").shouldHave(text("B"));
