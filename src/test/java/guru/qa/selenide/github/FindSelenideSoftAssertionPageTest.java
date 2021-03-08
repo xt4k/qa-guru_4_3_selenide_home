@@ -11,8 +11,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class FindSelenideSoftAssertionPageTest {
 
-    @DisplayName("Selenide Soft Assertion Test. qa-guru 4-3 home work")
     @Test
+    @DisplayName("Selenide Soft Assertion Test. qa-guru 4-3 home work")
     void shouldFindSelenideInGitHub() {
         open("https://github.com/selenide/selenide");
         $("span[data-content='Wiki']").click();
