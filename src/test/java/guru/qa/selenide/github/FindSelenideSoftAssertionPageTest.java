@@ -15,15 +15,14 @@ public class FindSelenideSoftAssertionPageTest {
     @Test
     void shouldFindSelenideInGitHub() {
         open("https://github.com/selenide/selenide");
-        $x(".//span[@data-content='Wiki']").click();
-        $$x(".//*[@id='wiki-pages-box']//a").last()
+        $("span[data-content='Wiki']").click();
+        $$("#wiki-pages-box a").last()
                 .shouldHave(text("SoftAssertions"))
                 .click();
-        for (SelenideElement se : $$x(".//ol"))
+        for (SelenideElement se : $$("ol"))
             se.shouldHave(text("JUnit5"));
-        $x(".//ol[@start=3]").shouldHave(text("Using JUnit5 extend test class:"))
+        $("ol[start='3']").shouldHave(text("Using JUnit5 extend test class:"))
                 .sibling(0)
                 .shouldHave(attribute("class", "highlight highlight-source-java"));
     }
-
 }
